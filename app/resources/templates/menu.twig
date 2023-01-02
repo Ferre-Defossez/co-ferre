@@ -1,0 +1,35 @@
+{% extends 'layout.twig' %}
+
+{% block main %}
+    <div class="sectionCards">
+        <div class="rowsC">
+            <div class="card" style="width: 18rem;" id="card1">
+                <img class="card-img-top" src="img/add2.png" alt="plus symbol">
+                <div class="card-body" id="body1">
+                    <a href="newEvent" class="btn btn-light">Create a new event</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;" id="card1">
+                <img class="card-img-top" src="img/overview.png" alt="women who reviews cards">
+                <div class="card-body" id="body1">
+                    <a href="overview" class="btn btn-light">View your events</a>
+                </div>
+            </div>
+        </div>
+        <div class="rowsC">
+            <div class="card" style="width: 18rem;" id="card1">
+                <img class="card-img-top" src="img/profileImg.svg" alt="Card image cap">
+                <div class="card-body" id="body1">
+                    <a href="#" class="btn btn-light">Profile</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;" id="card1">
+                <img class="card-img-top" src="img/logout.png" alt="logout symbol">
+                <div class="card-body" id="body1">
+                    <a href="logout" class="btn btn-light">Log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

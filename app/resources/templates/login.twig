@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+{% block main %}
+    <form class="loginForm" action="login" method="post" >
+        <fieldset>
+
+            <h2>Login</h2>
+
+            <dl class="clearfix">
+                <dt><label for="name">Username</label><span class="message error"> {{msgName}}</span></dt>
+
+                <dd class="text">
+                    <input type="text" id="name" name="name" value="{{username}}" class="input-text" />
+
+                </dd>
+                <dt><label for="pass">Password</label><span class="message error"> {{msgPass}}</span></dt>
+                <dd class="text">
+                    <input type="password" id="pass" name="pass" value="" class="input-text" />
+
+                </dd>
+
+                <dt class="full clearfix" id="lastrow">
+                    <input type="hidden" name="moduleAction" value="login" />
+                    <input type="submit" id="btnSubmit" name="btnSubmit" value="login" />
+                </dt>
+            </dl>
+        </fieldset>
+    </form>
+
+    <div class="underText">
+        <p class="text-left"><a href="registrate">Nog geen account? Registreer hier</a></p>
+        {% if nameLastLogin|trim == '' %}
+            <p class="text-left">Er werd op dit toestel nog niet ingelogd op deze website.</p>
+        {% else %}
+            <p class="text-left">Laatste login door {{ nameLastLogin }} op {{ dayLastLogin }} om {{ hourLastLogin }}</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

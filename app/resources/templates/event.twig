@@ -1,0 +1,52 @@
+{% extends 'layout.twig' %}
+
+{% block main %}
+    <title>{{ event.name }}</title>
+    <div class=".col-8">
+    <h1> {{ event.name }}</h1>
+        <p>{{ event.description }}</p>
+    </div>
+    <div class=".col-8">
+        <form action="{{ event.id }}" method="post">
+            <fieldset>
+                <h2>aanmelden</h2>
+                <dl class="clearfix">
+                    <dt><label for="dog-names">kies tijd slot:</label>
+                    </dt>
+                    <select name="slot" id="slot_id">
+                        {% for slot in slots %}
+                            <option value="{{ slot.id }}">{{ slot.name}} ({{ slot.time_start| date("d/m/Y h:i:s")}} - {{ slot.time_end| date("d/m/Y h:i:s")}} )</option>
+                        {% endfor %}
+                    </select>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" value="">
+                    <label for="email">email:</label>
+                    <input type="email" name="email" id="email">
+                    <label for="count">hoeveel personen:</label>
+                    <input type="count" name="count" id="count">
+                    <input type="submit" value="aanmelden">
+                </dl>
+            </fieldset>
+        </form>
+    </div>
+    <div class=".col-8">
+        <p><bold>{{ event.date }}</bold></p>
+        <p>{{ event.address }}</p>
+        <p>{{ event.start| date("d/m/Y") }} - {{ event.end| date("d/m/Y")}} ) </p>
+    </div>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        var uluru = {lat: {{ event.lat }}, lng: {{ event.lng }}};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+      }
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"defer></script>
+
+{% endblock %}

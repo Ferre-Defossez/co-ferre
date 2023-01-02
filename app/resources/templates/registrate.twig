@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+{% block main %}
+    <form class="registrateForm" action="registrate" method="post" >
+        <fieldset>
+
+            <h2>Registrate</h2>
+
+            <dl class="clearfix">
+                <dt><label for="name">Username</label><span class="message error"> {{msgName}}</span></dt>
+                <dd class="text">
+                    <input type="text" id="name" name="name" value="{{username}}" class="input-text" />
+                </dd>
+
+                <dt><label for="email">E-mailadres</label><span class="message error"> {{msgEmail}}</span></dt>
+                <dd class="text">
+                    <input type="text" id="email" name="email" value="{{email}}" class="input-text" />
+                </dd>
+
+                <dt><label for="pass">Password</label><span class="message error"> {{msgPass}}</span></dt>
+                <dd class="text">
+                    <input type="password" id="pass" name="pass" value="" class="input-text" />
+                </dd>
+
+                <dt><label for="pass2">Password repeat</label><span class="message error"> {{msgPass2}}</span></dt>
+                <dd class="text">
+                    <input type="password" id="pass2" name="pass" value="" class="input-text" />
+                </dd>
+
+                <dt class="full clearfix" id="lastrow">
+                    <input type="hidden" name="moduleAction" value="registrate" />
+                    <input type="submit" id="btnSubmit" name="btnSubmit" value="registrate" />
+                </dt>
+
+            </dl>
+
+        </fieldset>
+    </form>
+{% endblock %}

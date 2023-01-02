@@ -1,0 +1,29 @@
+{% extends 'layout.twig' %}
+
+{% block main %}
+    <div class="banner">
+        <img class="bannerImg" src="img/banner.png"
+             alt="podium with dj on and smoke and crowd throwing hands in the air">
+        <div class="container">
+            <div class="bannerTitle">
+                <h1>We create, <br>You celebrate</h1>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="py-3 text-center">Events</h2>
+    <div class="d-flex p-4 justify-content-around">
+        {% for event in events %}
+            <div class="card" style="width: 18rem;">
+                <img src="img/birthdayParty.jpg" class="card-img-top" alt="Birtday Party">
+                <div class="card-body">
+                    <h5 class="card-title">{{ event.name }}</h5>
+                    <p class="card-text">{{ event.description }}</p>
+                    <p class="card-text">{{ event.start }}</p>
+                    <p class="card-text">{{ event.end }}</p>
+                    <a href="#" class="btn btn-primary">learn more</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
